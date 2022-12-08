@@ -16,13 +16,6 @@ struct Day8 {
         var endOfRow = grid.first!.count - 1
 
         var bestScore = 0
-        var bestRowIndex = 0
-        var bestColumnIndex = 0
-        var bestTopScore = 0
-        var bestBottomScore = 0
-        var bestLeftScore = 0
-        var bestRightScore = 0
-
 
         for (rowIndex, row) in grid.enumerated() {
             for (columnIndex, item) in row.enumerated() {
@@ -80,18 +73,10 @@ struct Day8 {
                     let score = topScore * bottomScore * leftScore * rightScore
                     if score > bestScore {
                         bestScore = score
-                        bestTopScore = topScore
-                        bestRightScore = rightScore
-                        bestLeftScore = leftScore
-                        bestBottomScore = bottomScore
-                        bestRowIndex = rowIndex
-                        bestColumnIndex = columnIndex
                     }
                 }
             }
         }
-
-        print("(\(bestRowIndex), \(bestColumnIndex)) - [\(bestTopScore) * \(bestBottomScore) * \(bestLeftScore) * \(bestRightScore)] = \(bestScore)")
         return bestScore
     }
 }
